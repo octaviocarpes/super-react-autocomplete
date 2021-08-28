@@ -95,6 +95,7 @@ The setState takes two arguments, the first one can be a function or a object an
  - Change all the `this.setState` to the functions that set the variables
  - Change the lifecycle methods to their equivalent in hooks (e.g componentDidMount to useEffect)
  - Change the state variables in the HTML to the new ones
+ - Return the JSX
 
 
 #### 10. List a few ways styles can be used with components.
