@@ -89,7 +89,13 @@ try {
 #### 8. How many arguments does setState take and why is it async.
 The setState takes two arguments, the first one can be a function or a object and the second argument is a callback function which is optional.
 
-#### 9. List the steps needed to migrate a Class to Function Component. 
+#### 9. List the steps needed to migrate a Class to Function Component.
+ - Change the class to a function
+ - Change the state object to variables with useState hooks
+ - Change all the `this.setState` to the functions that set the variables
+ - Change the lifecycle methods to their equivalent in hooks (e.g componentDidMount to useEffect)
+ - Change the state variables in the HTML to the new ones
+
 
 #### 10. List a few ways styles can be used with components.
 We can provide styles to components by adding classes to them through the `className` and importing css files to the component.
