@@ -1,6 +1,8 @@
 # Deel Frontend Egineering test
 This project contains my personal answers for the frontend software engineering test for Deel company.
 
+PS: I added the react testing library to do some tests but i could only do the smoke tests.
+
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
