@@ -1,0 +1,14 @@
+.view {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.view .container {
+    padding: 10px;
+}
+
+.view .container h3 {
+    text-align: left;
+}
