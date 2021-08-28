@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from "react"
+import React, { useState, useMemo, useCallback } from "react"
 import "./styles.css"
 import { debounce } from "../../utils/debounce";
 import { fetchPeople } from "../../api";
@@ -10,7 +10,7 @@ export const FunctionalAutoComplete = () => {
     const [isLoading, setIsLoading] = useState(false)
     const [error, setError] = useState(false)
 
-    const fetchData = async (name) => {
+    const fetchData = useCallback(async (name) => {
         try {
             if (name.length === 0) {
                 setResults([]);
@@ -22,17 +22,20 @@ export const FunctionalAutoComplete = () => {
             const response = await fetchPeople(name);
             const data = await response.json();
             setIsLoading(false);
-
-            if (data.results.length > 0) {
-                setResults([...data.results.map(result => ({ name: result.name, url: result.url }))])
-                setError(false)
-            } else {
-                setError(true)
-            }
+            handleResponse(data)
         } catch (error) {
             setError(true);
             setIsLoading(false);
             console.log(error);
+        }
+    }, [])
+
+    const handleResponse = (data) => {
+        if (data.results.length > 0) {
+            setResults([...data.results.map(result => ({ name: result.name, created: result.created }))])
+            setError(false)
+        } else {
+            setError(true)
         }
     }
 
@@ -47,7 +50,7 @@ export const FunctionalAutoComplete = () => {
                 <li
                     onClick={() => handleSelect(result.name)}
                     className={"item"}
-                    key={result.url}
+                    key={result.created}
                     tabIndex={index}
                 >
                     {getHighlightedText(result.name, search)}
@@ -58,7 +61,7 @@ export const FunctionalAutoComplete = () => {
 
     const debounceSearch = useMemo(() => {
         return debounce((search) => fetchData(search), 300);
-    }, []);
+    }, [fetchData]);
 
     const handleInput = (value) => {
         setValue(value)

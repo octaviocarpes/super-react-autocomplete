@@ -30,7 +30,7 @@ export class ClassAutoComplete extends React.Component {
             const response = await fetchPeople(name)
             const data = await response.json()
             this.setState({
-                results: [...data.results.map(result => ({ name: result.name, url: result.url }))]
+                results: [...data.results.map(result => ({ name: result.name, created: result.created }))]
             })
             this.setState({
                 isLoading: false
@@ -68,7 +68,7 @@ export class ClassAutoComplete extends React.Component {
                 <li
                     onClick={() => this.setSearch(result.name)}
                     className={'item'}
-                    key={result.url}
+                    key={result.created}
                     tabIndex={index}
                 >
                     {this.getHighlightedText(result.name, this.state.search)}
