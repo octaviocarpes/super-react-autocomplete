@@ -1,0 +1,54 @@
+.auto-complete {
+    display: flex;
+    flex-direction: column;
+    width: 500px;
+    align-items: flex-start;
+}
+
+.auto-complete label {
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.auto-complete .input {
+    display: flex;
+    align-items: center;
+    height: 70px;
+    width: 300px;
+}
+
+.auto-complete .input input {
+    height: 24px;
+    width: 220px;
+}
+
+.auto-complete .input img {
+    width: 70px;
+    height: 70px;
+}
+
+.auto-complete .results {
+    list-style-type: none;
+    border: 1px solid lightgray;
+    transform: translate(0, 70px);
+    width: 210px;
+    position: absolute;
+    background-color: white;
+}
+
+.auto-complete .results .item {
+    margin: 15px;
+    padding: 10px;
+    transform: translate(-30px, 0);
+    text-align: left;
+}
+
+.auto-complete .results .item:hover {
+    cursor: pointer;
+    background-color: lightskyblue;
+}
+
+.auto-complete .error {
+    font-size: 12px;
+    color: darkgray;
+}
