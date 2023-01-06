@@ -1,4 +1,4 @@
-# Deel Frontend Egineering test
+# Super react autocomplete
 This project contains my personal answers for the frontend software engineering test for Deel company.
 
 PS: I added the react testing library to do some tests but i could only do the smoke tests.
